@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package common;
+
+message Empty {}
+
+message Request {
+  string uuid = 1;
+}
+
+message Response {
+  int32 status = 1;
+  string message = 2;
+}

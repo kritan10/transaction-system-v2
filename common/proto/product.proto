@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package product;
+
+service ProductService {
+  rpc Invoke (ProductRequest) returns (ProductResponse);
+}
+
+message ProductRequest {
+  string featureKeyword = 1;
+  string productKeyword = 2;
+}

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package customer;
+
+service CustomerService {
+  rpc CreateCustomer (Customer)       returns (common.Response);
+  rpc ViewCustomer   (common.Request) returns (CustomerResponse);
+  rpc UpdateCustomer (Customer)       returns (common.Response);
+}
+
+message Customer {
+  string uuid = 1;
+  string name = 2;
+  string passkey = 3;
+  string account_number = 4;
+  string balance = 6;
+}
+
+message CustomerResponse {
+  common.Response meta = 1;
+  Customer data = 2;
+}

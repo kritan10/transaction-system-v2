@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package transaction;
+
+service TransactionService {
+  // rpc PrepareTransaction (PrepareRequest) returns (PrepareResponse);
+  // rpc ConfirmTransaction (ConfirmRequest) returns (ConfirmResponse);
+  // rpc VerifyTransaction  (VerifyRequest) returns (VerifyResponse);
+  rpc TransferBalance (TransferBalanceRequest) returns (TransferBalanceResponse);
+  rpc LoadBalance     (LoadBalanceRequest)     returns (common.Response);
+}
+
+// message PrepareRequest {
+//   string toAccount = 1;
+//   string fromAccount = 2;
+//   double amount = 3;
+// }
+
+// message PrepareResponse {
+//   string transactionId = 1;
+//   string status = 2;
+// }
+
+// message ConfirmRequest {
+//   string transactionId = 1;
+// }
+
+// message ConfirmResponse {
+//   string status = 1;
+// }
+
+// message VerifyRequest {
+//   string transactionId = 1;
+//   string passkey = 2;
+// }
+
+// message VerifyResponse {
+//   string status = 1;
+// }
+
+message TransferBalanceRequest {
+  string from = 1;
+  string to = 2;
+  string amount = 3;
+  string passkey = 4;
+}
+
+message TransferBalanceResponse {
+  string transactionId = 1;
+  string status = 2;
+}
+
+message LoadBalanceRequest {
+  string account = 1;
+  string amount = 2;
+}

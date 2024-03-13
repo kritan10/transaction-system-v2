@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package promo;
+
+service PromoService {
+  rpc ApplyPromo (ApplyPromoRequest) returns (ApplyPromoResponse);
+}
+
+message ApplyPromoRequest {
+  string code = 1;
+  string product = 2;
+}
+
+message ApplyPromoResponse {
+  double promoAmount = 1;
+  string status = 2;
+}

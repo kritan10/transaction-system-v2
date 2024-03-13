@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "common.proto";
+
+package cbs;
+
+service CbsService {
+  rpc ViewBalance (ViewBalanceRequest) returns (ViewBalanceResponse);
+}
+
+message ViewBalanceRequest {
+  string accountNumber = 1;
+}
+
+message ViewBalanceResponse {
+  string accountNumber = 1;
+  double currentBalance = 2;
+}
